@@ -1,0 +1,1061 @@
+.header{
+	height:var(--header-height);
+	background-image: linear-gradient(0,#fe6433,#f53e2d);
+}
+.app{
+	font-size: 1.4rem;
+}
+.header__navbar{
+	height: var(--navbar-height);
+	display: flex;
+	justify-content: space-between;
+
+}
+.header__navbar-list{
+	list-style: none;
+	padding-left: 0;
+/*	display: flex;
+	align-items: center;
+	justify-content: center; thay cho inline- block*/
+}
+.header__navbar-item{
+	margin: 0 8px;
+	position: relative;
+
+
+/*	display: flex;
+	align-items: center; cai nay thay cho inline block o dong 44*/
+}
+.header__navbar-user{
+	display: flex;
+	justify-content:center;
+	position: relative;
+
+}
+.header__navbar-user-avatar{
+	width: 20px;
+	height: 20px;
+}
+.header__navbar-user-name{
+
+}
+.header__navbar-user-menu{
+	position: absolute;
+	z-index: 1;
+	width: 135px;
+	background-color:var(--white-color);
+	box-sizing: border-box;
+	padding: 8px 10px;
+	border-radius: 2px;
+	box-shadow: 0 0 3px #666;
+	top:100%;
+	left:-25px;
+	display: none;
+}
+.header__navbar-user:hover .header__navbar-user-menu{
+	display: block;
+
+}
+.header__navbar-user-menu:before{
+	content: "";
+	border: 20px solid;
+	border-color: transparent transparent var(--white-color) transparent;
+	position: absolute;
+	right: 50px;
+	top:-25px;
+}
+.header__navbar-user-menu a{
+	text-decoration: none;
+	font-size: 1.4rem;
+	color: var(--text-color);
+	display:block;
+}
+.header__navbar-user-menu-{
+	margin: 5px 5px;
+
+}
+.header__navbar-user-menu-item:hover{
+	background-color:#dbdbdb;
+}
+
+.header__navbar-item--has-qr:hover .header__qr{
+	/*dc hieu la no se ap dung vao header qr trong truong hop no hover vaof cais kia*/
+	display:block;
+}
+.header__navbar-item--has-notify:hover .header__notify{
+	display: block;
+}
+.header__navbar-item,
+.header__navbar-item-link{
+	display: inline-block;
+	font-size: 1.4rem;
+	text-decoration: none;
+	color: var(--white-color);
+	margin: 0 8px;
+}
+.header__navbar-item--bold{
+	font-weight: 600;
+}
+.header__navbar-item--separate::after{
+	
+	position: absolute;
+	content:"";
+	display: block;
+	/*border-left: 4px solid #FB9086;*/
+	width: 2px;
+	height: 20px;
+	background-color:  #FB9086;
+	right:-8px;
+	top: 0;
+	
+	
+}
+.header__navbar-item:hover,
+.header__navbar-icon-link:hover,
+.header__navbar-item-link:hover{
+	cursor: pointer;
+	color: rgb(255,255,255,0.7);
+}
+.header__navbar-icon-link{
+	color: var(--white-color);
+	text-decoration: none;
+}
+.header__navbar-icon-link:nth-child(2){
+	margin-left: 8px;
+}
+.header__navbar-icon{
+	margin: 0 5px;
+}
+.header__navbar-title--no-pointer{
+	cursor:text;
+	color:var(--white-color);
+}
+/*Header QR*/
+.header__qr{
+	background-color: var(--white-color);
+	width: 186px;
+	position: absolute;
+	left:-7px;
+	top: 100%;
+	border: 1px solid orange;
+	display: none;
+	z-index: 1;
+	 /*aanr khoi layout luon */
+	animation: fadeIn ease-in 1s;  /* xe, them  kieu chuyen dong */
+}
+.header__qr-img{
+	width: 100%;
+}
+.header__qr-apps{
+	display: flex;
+	justify-content: space-between;
+}
+.header__qr-dowload-img{
+height: 17px;
+margin: 0 9px;
+}
+/*Header Notifycation*/
+.header__notify{
+	position: absolute;
+	width: 404px;
+	/*height: 400px;* ko dẻ height vì tùy noi dung nó có thẻ dài ngắn*/
+	right: 0;
+	top: 118%;
+	display: none;
+	will-change: opacity,transform;   /*toois ư hiệu hứng animation */
+	background-color: var(--white-color);
+	border:1px solid #D3D3D3;
+	animation: headerNotifyGrowth ease-in 0.01s;
+	z-index: 2;
+}
+@keyframes headerNotifyGrowth{
+	from{
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+.header__notify-header {
+	height: 50px;
+	background-color: var(--white-color);
+}
+.header__notify-header h3{
+	margin-left: 12px;
+color:#999;
+font-weight: 300;
+font-size: 1.4rem;
+line-height: 40px; /* chieu cao cua dong cho = chieu cao chưas nó=40px sẽ cân giưaz */
+cursor: text;
+user-select: none; /* Ko booi dden dduwoc cai text */
+}
+.header__notify-list{
+	padding-inline-start:0;
+	margin-left: 12px;
+	z-index: 2;
+}
+.header__notify-item{
+	
+	display: flex;
+
+
+}
+.header__notify-link{
+	display: flex;
+	text-decoration: none;
+	
+	flex:1;  /* chiem toi uu cais do daif cuar nos */
+	padding-bottom: 5px;
+}
+.header__notify-item:hover{
+	background-color: #f1f1f1;
+}
+.header__notify-item--viewed{
+ background-color: rgba(238,75,43,0.09);
+}
+.header__notify-img{
+	width: 58px;
+	object-fit: contain;
+
+
+}
+.header__notify-infor{
+	display: block; 
+}
+.header__notify-name{
+	display: block; 
+	color:#666;
+	/*text-decoration: none;/*cho no xuoi dong. ow trong the a nha ....cais nayf laf sai, cais nayf chir ddeer suwar text */
+}
+.header__notify-description{
+	display: block; 
+	color:#999;
+	/*text-decoration: none;*/
+}
+.header__notify-footer{
+	display: flex;     /* phai de flex vif default nos= block . khi padding the a thi */
+	/*no ko tawng cais footer len maf  nos laik tawng ra ngoaif khung */
+
+}
+.header__notify-btn{
+	margin: auto;
+	text-decoration: none;
+	padding: 16px 16px;
+}
+.header__notify::before {
+	content: "";
+	border: 20px solid;
+	border-color: transparent transparent var(--white-color) transparent;
+	position: absolute;
+	right: 12px;
+	top:-30px;
+}
+/*Auth Modal*/
+.auth-form{
+	width: 500px;
+	padding: 32px;
+}
+.auth-form__container{
+}
+.auth-form__header{
+	height:16px;
+	display: flex;
+	padding: 16px;
+	justify-content: space-between;
+}
+.auth-form__heading{
+	font-size: 1.9rem;
+	color:rgba(0,0,0,0.8);
+	font-weight: 400;
+	cursor: auto;
+	border: 0;
+	background: none;
+	text-transform:capitalize;
+	outline:none;
+}
+
+.auth-form__switch-btn{
+	color: #ee4d2d;
+	font-size: 1.7rem;
+    padding: 0 .625rem;
+    border: 0;  /* loai bo duong vien cua nut btn */
+}
+.auth-form__form{
+	padding: 40px 12px;
+}
+.auth-form__input{
+	width: 100%;
+	height: 40px;
+	padding-left: 10px;
+	margin:8px 0; 
+	font-size: 1.7rem;
+	border: 1px solid var(--border-color);
+	border-radius:2px;
+}
+.auth-form__controls{
+	margin: 15px 0;
+	padding-left: 213px;
+	display: flex;
+}
+/*
+.btn{
+ outline: none;
+ background: none;
+ cursor: pointer;
+ border: 0;
+
+}
+*/
+.btn--return{
+	background-color: #f5f5f5;
+}
+.btn--register{
+	background-color: #ee4d2d;
+}
+.auth-form__socials{
+	height: 40px;
+	background-color: #fff;
+	background-clip: content-box;
+	padding: 15px 0 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.btn--with-icon{
+	min-width: 216px;
+	padding: 4px 10px;
+	color:white;
+	
+}
+.btn--with-icon-face{
+  background-color:#3a5998;
+  text-align: center;
+}
+.btn--with-icon-google{
+	color:unset;
+  background-color: #dbdbdb;
+  text-align: center;
+}
+/*Header-with-search*/
+.header-with-search{
+	height:var(--header-with-search-height);
+	display: flex;
+	align-items: center;
+}
+.header__logo {
+	width:200px;
+}
+.header__logo-img{
+	width: 150px;
+    margin: 15px 5px;
+}
+.header__search{
+	flex: 1;
+	height: 40px;
+	background-color:var(--white-color);
+	border-radius:2px;
+	display: flex;
+	align-items: center;
+}
+/* Layout Cart*/
+.header__cart{
+	width: 150px;
+	text-align: center;  /* no sex cawn giuwax cais con cuar nos ko hawnr chir lamf dc vowis text */
+}
+.header__cart-wrap{
+	position: relative;
+	display: inline-block;
+	padding: 0 8px;
+	cursor: pointer;
+
+}
+.header__cart-wrap:hover .header__cart-list{
+	display:block;
+	
+}
+.header__cart-list{
+	position: absolute;
+	z-index: 1;
+	height: 50vh;
+	top: 100%;
+	right: -1px;
+	background-color: var(--white-color);
+	box-shadow: 0 0 3px #666;
+	width: 400px;
+	border-radius: 2px;
+	animation: fadeIn ease-in 0.2s;
+	display: none;
+	cursor: default;
+	overflow-y: auto;
+}
+.header__cart-list::after {
+	cursor: pointer;
+	content: "";
+	border: 20px solid;
+	border-color: transparent transparent var(--white-color) transparent;
+	position: absolute;
+	right: 2px;
+	top:-28px;
+}
+.header__cart-list--no-cart{
+	padding: 30px 0;
+}
+.header__cart-no-cart-img{
+	width: 60%;
+	display: none;
+
+}
+.header__cart-list--no-cart .header__cart-no-cart-img,
+.header__cart-list--no-cart .header__cart-list-no-cart-msg{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.header__cart-icon{
+	margin-top: 20px;
+	font-size: 2.4rem;
+	color: var(--white-color);
+	/*background-color: var(--white-color);ko phai dung cai nayf nha */
+}
+.header__cart-list-no-cart-msg{
+	display: none; 
+	font-size: 1.4rem;
+	margin: 12px;
+	color: var(--text-color);
+}
+.header__cart-notice{
+	position: absolute;
+	top:8px;
+	right: 0px;
+	border:2px solid #ed4a17;
+	padding: 2px 4px;
+	line-height: 1.4rem;
+	border-radius: 10px;
+	border:;
+	color: var(--primary-color);
+	font-size: 1.4rem;
+	background-color: var(--white-color);
+}
+
+
+.header__cart-heading{
+    text-align: left;
+    margin: 10px 0 10px 12px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #999;	
+}
+.header__cart-list-item{
+	padding-left: 0;
+	list-style: none;
+
+
+}
+.header__cart-item{
+	display: flex;
+	margin: 0 12px;
+	align-items: center;
+}
+.header__cart-item:hover{
+	background-color:#dbdbdb;
+}
+.header__cart-img{
+    width: 42px;
+    height: 42px;
+    margin: 12px;
+    border: 2px solid #999;
+}
+.header__cart-item-infor{
+	width: 100%;
+}
+.header__cart-item-head{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.header__cart-item-name{
+ 	font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+    max-height:5.2rem;
+    overflow: hidden;
+    padding-right: 15px;
+    flex:1;
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    text-align: left;
+
+}
+.header__cart-item-head-price-wrap{
+
+}
+.header__cart-item-price{
+   color: var(--primary-color);
+}
+.header__cart-item-multiply{
+	color: #999;
+}
+.header__cart-item-quantity{
+	color: #999;
+}
+.header__cart-item-body{
+	text-align: left;
+	color: #999;
+	font-size: 1.2rem;
+	font-weight: 400;
+	border:none;
+	outline: none;
+}
+.header__cart-item-description{
+
+}
+.header__cart-item-remove{
+  	float: right;
+    outline: none;
+    border: none;
+}
+.header__cart-item-remove:hover{
+	color:var(--primary-color);
+}
+.header__cart-view-cart{
+	float: right;
+	margin: 12px;
+}
+.header__cart-view-cart:hover{
+	background-color:#c24d36 ;
+}
+.header__search-input-wrap{
+	flex: 1;
+	display: flex;
+	height: 100%;
+	position: relative;
+}
+.header__search-input{
+	border-radius:2px;
+	font-size: 1.4rem;
+	flex: 1;
+	height: 100%;
+	border:none;
+	outline: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 6px;
+}
+.header__search-select{
+	height: 40px;
+	border-left: 1px solid var(--border-color);
+	padding-left: 16px;
+}
+.header__search-select-lable{
+	font-size: 1.4rem;
+	color:var(--text-color);
+}
+.header__search-select-icon{
+	margin:16px;
+}
+.header__search-btn{
+	width: 50px;
+	height: 34px;
+	background-color: var(--primary-color);
+	border:none;
+	outline: none;
+	border-radius:2px;
+	margin: 2px;
+
+
+}
+.header__search-btn:hover{
+	background-color: #c24d36;
+}
+.header__search-btn-icon{
+	width: 20px;
+	color: var(--white-color);
+}
+.header__search-input:focus ~.header__search-history{
+	display: block;
+}
+/*Search History*/
+.header__search-history{
+	position: absolute;
+	top: calc(100% + 2px);
+	left: 0;
+	width:calc(100% - 60px); 
+	background-color: var(--white-color);
+	border-radius:2px;
+	box-shadow: 0 0 3px #666;
+	overflow: hidden;
+	display: none;
+	z-index: 1;
+}
+.header__search-history-heading{
+	margin:6px 12px;
+	font-size: 1.4rem;
+	color:#999;
+	font-weight: 400;
+
+}
+.header__search-history-list{
+	padding-left: 0;
+	list-style: none;
+	margin: 4px 0 0;
+
+}
+.header__search-history-item{
+	height: 30px;
+	padding: 0 12px;
+	
+	
+}
+.header__search-history-item:hover{
+	background-color:#fafafa;
+}
+.header__search-history-item a{
+	line-height: 30px;
+	text-decoration: none;
+	font-size: 1.4rem;
+	color: var(--text-color);
+	display: block;  /* ke thuwa chieu ngnag cua thang chua no */
+}
+/*App container*/
+.app__container{
+	background-color: #f5f5f5;
+}
+.app__content{
+	padding-top: 30px;
+}
+.category{
+	border-radius: 2px;
+	background-color: var(--white-color);
+	border: 1px solid var(--border-color);
+}
+.category__heading{
+	font-size: 1.4rem;
+	font-weight: 500;
+	padding: 10px 10px;
+	border-bottom: 1px solid var(--primary-color);
+	margin: 0;
+}
+.category-list{
+	list-style: none;
+	padding-left: 0px;
+	margin: 0;
+}
+.category-item{
+	font-size: 1.3rem;
+	padding: 5px 10px;
+	margin-right: 5px;
+	border-bottom:1px solid #E1E1E1;
+}
+.category-item::first-child(){
+	border-bottom: none;
+}
+.category-item:hover .category-item__link{
+	color: var(--primary-color);
+}
+.category-item__link{
+	text-decoration:none;
+	color:var(--text-color);
+	font-weight: 400px;
+}
+/*Home Sort+ Filter*/
+.home-filter{
+	display: flex;
+	align-items: center;
+	/*justify-content: center;*/
+	background-color: rgba(0,0,0,0.04);
+	padding: 12px 22px;
+	border-radius: 2px;
+}
+.home-filter__label{
+	font-size: 1.4rem;
+	margin-right: 12px;
+}
+.select-input{
+	padding: 0 12px;
+    font-size: 1.4rem;
+    position: relative;
+}
+.select-input__label{
+
+}
+.select-input__item{
+	padding: 5px;
+	display: flex;
+	color: var(--text-color);
+	align-items: center;
+}
+.select-input__list{
+	width: 150px;
+	height: 75px;
+	background-color:var(--white-color);
+	position: absolute;
+	z-index: 1;
+	top:110%;
+	right: 12px;
+	display: none;
+	box-shadow: 0 0 3px #666;
+}
+.select-input:hover .select-input__list{
+	display: block;
+}
+a{
+	text-decoration: none;
+}
+.home-filter__page{
+	text-align: right;
+	display: inline-flex;
+	align-items: center;
+	margin-left: auto;
+
+}
+.home-filter__page-next{
+	font-size: 1.4rem;
+	padding-right: 10px;
+
+}
+.home-filter__page-control{
+	background-color: var(--white-color);
+	width: 72px;
+	height: 36px;
+	border-radius: 2px;
+	overflow: hidden;
+	display: flex;
+	text-align: center;
+	/*margin-left: 10px;
+	font-size: 2.0rem;*/
+}
+.home-filter__page-btn{
+	flex: 1;
+}
+.home-filter__page-btn:first-child{
+	border-right: 1px solid #999;
+}
+/*Product Item*/
+.home-product{
+	margin-bottom: 10px;
+}
+.home-product-item{
+	display: block;  /* vi the a ko co mac dinh laf block */
+	background-color: var(--white-color);
+	margin-top: 10px;
+	position: relative;
+	border: 3px;
+	
+	box-shadow: 0 0 3px #666;
+	transition: transform linear 0.1s;
+	will-change: transform; /* optimal cai animation of browser */
+	
+}
+.home-product-item:hover{
+	transform: translateY(-2px);
+	box-shadow: 0 0 3px orange;
+}
+.home-product-item-img{
+	padding-top: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+.home-product-item__name{
+	font-size: 1.4rem;
+	font-weight: 400;
+	line-height: 1.8rem;
+	height: 3.6rem; /* de cho nooi dung chuwx chir trong 2 dongf=1.8*2 */
+	color: var(--text-color);
+	/*padding: 0px 10px;*/
+	margin: 10px 10px 6px;
+	overflow: hidden;
+	display: block;
+	display: -webkit-box;   /* Chi chay tren trinh duyet co core= webkit*/
+	-webkit-box-orient: vertical; /* cai huong cua cai box: la theo chieu docj cua chuwx dos*/
+    -webkit-line-clamp:2;  /* giois han so dong : cais nayf ra daaus ..*/
+
+
+	/*Trong truong hop muon content tren 1 dong thif cais treen ko dungf ddc phai dung cais nayf
+	text-overflow: ellipsis;/* qui ding cai hanh vi them dau ... 
+	white-space: nowrap;/* cai nay de ko dc xuoi dong*/
+	
+}
+.home-product-item__price{
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+.home-product-item__price-old{
+	
+	margin-left: 10px;
+	font-size: 1.4rem;
+	text-decoration: line-through;
+	color: #666;
+}
+.home-product-item__price-new{
+	margin-left: 10px;
+	font-size: 1.6rem;
+	color: var(--primary-color);
+
+}
+.home-product__pagination{
+	margin: 40px 0 5px 0;
+}
+.home-product-item__action{
+	display: flex;
+	justify-content: space-between;
+	margin: 6px 10px;
+}
+.home-product-item__like{
+	font-size: 1.3rem;
+}
+.home-product-item__like--liked{
+}
+.home-product-item__rating{
+	font-size: 1rem;
+	color: #999;
+}
+.home-product-item__star--gold {
+	color:var(--star-color);
+}
+i.home-product-item__like-icon-fill{
+	display: none;
+	color: var(--primary-color);
+}
+.home-product-item__like--liked .home-product-item__like-icon-fill{
+	display: inline-block;
+}
+.home-product-item__like--liked .home-product-item__like-icon-empty{
+	display:none;
+}
+.home-product-item__origin{
+	display: flex;
+	margin: 3px 10px 0;
+	font-size: 1.4rem;
+	color: #999;
+	font-weight: 300;
+}
+.home-product-item__brand{
+	margin-right: auto;
+
+}
+.home-product-item__origin-name{
+
+}
+.home-product-item__favourite{
+	position: absolute;
+	top:10px;
+	left: -4px;
+	font-size: 1.2rem;
+	font-weight: 500;
+	color:var(--primary-color);
+	background-color: currentColor;
+	
+	line-height: 1.6rem;
+	padding-right: 4px;
+	border-top-right-radius: 3px;
+}
+.home-product-item__favourite i{
+	font-size: 0.9rem;
+	margin: 0px 2px 0 4px;
+}
+.home-product-item__favourite span{
+	color: var(--white-color);
+}
+.home-product-item__favourite::after{
+	/* la the con cua the .home-product-item__favourite*/
+	position: absolute;
+	content: "";
+	left: 0;
+	bottom: -3px;	
+	border-top: 3px solid currentColor;
+	border-left: 3px solid transparent;
+	filter: brightness(60%);
+
+}
+.home-product-item__sale-off{
+	position: absolute;
+	top:0;
+	right: 0;
+	width: 40px;
+	height: 36px;
+	background-color: rgba(255,216,64,0.95);
+	text-align: center;
+}
+.home-product-item__sale-off::after{
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	border-width: 0 20px 6px;
+	border-style: solid;
+	color: rgba(255,216,64,0.95);
+	border-color: transparent currentColor transparent currentColor;
+
+}
+.home-product-item__sale-off-percent{
+	font-weight: 700;
+	font-size: 1.2rem;
+	line-height: 1.4rem;
+	color:var(--primary-color);
+	
+}
+.home-product-item__sale-off-lable{
+	font-weight: 700;
+	font-size: 1.2rem;
+	line-height: 1.4rem;	
+	color: var(--white-color);
+	position: relative;
+	top: -10px;
+}
+/*footer*/
+.footer{
+	border-top: 5px solid var(--primary-color);
+}
+.footer__heading{
+	font-size: 1.3rem;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.footer-list{
+	list-style: none;
+	font-size: 1.3rem;
+	color:orange; /* ko co tac dung */
+	font-weight: 350;
+	padding-left: 0;
+}
+.footer-item{
+	color: orange;
+	text-align: left;
+}
+.footer-item__link{
+	color: var(--text-color);
+}
+.footer__download{
+	display: flex;
+}
+.footer__download-qr-img{
+	width: 85px;
+	height: 85px;
+	border: 1px solid var(--border-color);
+	margin-right: 10px;
+}
+.footer__download-apps{
+	align-items: center;
+	margin: auto;
+}
+.footer__download-app-img{
+	width: 100px;
+}
+.grid__footer{
+	/*margin-top: 50px*/
+	padding:30px 0 30px;
+	background-color:var(--white-color);
+}
+.footer__copyright{
+	display: flex;
+	margin-top: 0;
+	font-size: 1.3rem;
+	font-weight: 500;
+	/*text-align: center;*/
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+}
+/*detail product*/
+.information__detail{
+	margin-left: 2rem;
+}
+.option{
+}
+.size{
+	display: flex;
+}
+.quantity{
+	display: flex;
+}
+.quantity input{
+	max-width: 6rem;
+	max-height: 4rem;
+}
+.size select{
+	max-width: 7rem;
+	max-height: 4rem;
+}
+.lable__size{
+	margin-right: 2rem;
+}
+.lable__quantity{
+	margin-right: 2rem;
+}
+/*Cart*/
+.cart__column-2{
+	margin-top: 5rem;
+	border:0.2rem solid black;
+}
+.cart__product-img{
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-position: center;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.table-hover input{
+	max-width: 5rem;
+}
+.name__product{
+	display: inline-grid;
+}
+.total__price{
+	margin-top: 5rem;
+}
+.total__price a{
+	margin-top: 2rem;
+	margin-left: 1rem;
+}
+/*Confirm checkout*/
+.header_address{
+	background-color: var(--white-color);
+	margin-top:30px;
+}
+.address-content{
+	margin-top: 20px;
+	border: 1px dashed black;
+	width: 50%;
+	padding: 5rem;
+	background-color: var(--white-color);
+
+}
+.address--change{
+	background: rgb(247, 247, 247);
+	display: grid;
+	max-width: 300px;
+	width: 100%;
+	margin: 50px auto;
+}
+.address--change input{
+	min-width: 50px;
+
+
+}
+.btn__continue{
+	background-color: var(--primary-color);
+	color: white;
+}
+.btn__update{
+
+}
+.btn__address-change{
+	display: flex;
+	margin: 2rem 8rem;
+
+}
+.btn__change--cancel{
+
+}
+.btn__change--update{
+	background-color: var(--primary-color);
+	color: white;
+}

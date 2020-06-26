@@ -1,0 +1,206 @@
+:root{
+	--primary-color:#EE4D2D;
+	--white-color:#fff;
+	--black-color:#000;
+	--text-color:#333; 
+	--border-color:#dbdbdb;
+	--star-color:#ffce3d;;
+	/*header*/
+	--header-height:120px;
+	--navbar-height:34px;
+	--header-with-search-height:calc(var(--header-height) - var(--navbar-height));
+}
+
+
+*{  
+	/*ap dung trong tat ca phan tu  trong html*/
+	box-sizing: inherit; /* ke thua tu cai the chuwas no co thuoc tinh box-sizing */
+}
+html{
+	/*16px=100%*/
+	font-size: 62.5%;
+	/*1rem=10px=62,5%*/
+	line-height: 1.6rem;  /*chieu cao cua chu tren 1 dong */
+	font-family: 'Roboto', sans-serif;   
+	box-sizing: border-box;
+	/*kkeyword:google roboto font*/
+	/* Roboto la cai chữ mik vừa link font chữ, cai sán-serif: chủng chữ (tập hợp) chữ ko có chân ở dưới
+      viết vậy có nghixalaf : trong khi chưa tải đc font roboto hoặc lỗi nó sẽ hiển thị bằng sán-serif
+      con khi tai dc nó sẽ sd roboto;
+	*/
+}
+/*Responsive*/
+.grid{  /* grid :là thuật ngữ giúp ta sắp xếp các thành phần trobng 1 trang web */
+	width: 1200px;
+	max-width: 100%; /*chieuf ngang tối da */
+	/* có nghĩa là: với màn hình có kích thước >1200 thì kích thước class grid chỉ là 1200
+	Khi man hinh có kich thước <1200 thì max-width có tác dụng giam kich thuoc man hinh = kich thuoc man hinh co kich thuoc <1200*/
+	margin:0 auto; /* tu dong căn giữa khối này khi nằm trong 1 khối khác */
+}
+.grid__full-width{
+	/*sd trong trương hợp ko muon width= 1200*/
+	width: 100%;
+}
+.grid__row{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -10px;
+	margin-right: -10px;
+
+	/*flex-wrap: wrap; /* đẻ những cái flex item có dộ dài lớn hơn class này thì nó sẽ xuôi dòng*/
+}
+/*Test*/
+.grid__column-2{
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 16.6667%;
+	font-size: 1.4rem;
+}
+.grid__column-2-4{
+	/* manf hinhf chia ra lamf 12 phan : thi no chiem 2,4 phan*/
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 20%;
+	font-size: 1.4rem;
+	/*No se chiem 20 % trong cai cha cuar nos*/
+}
+.grid__column-10{
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 83.3334%;
+	font-size: 1.4rem;
+}
+.grid__column-4{
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 33.3333%;
+	font-size: 1.4rem;
+}
+.grid__column-8{
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 66.6667%;
+	font-size: 1.4rem;
+}
+
+/*animation*/
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+@keyframes growth{
+	from{
+		transform: scale(var(--growth-from));
+	}
+	to{
+		transform: scale(var(--growth-to));
+	}
+}
+/*Modal*/
+.modal{
+	/*chiem het man hinh*/
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+
+}
+.modal__overlay{
+	/*phu len 1  lop mo dẻ nổi lên phần body*/
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 1;
+}
+.modal__body{
+/*	width: 300px;
+	height: 300px;*/
+	/*inner để viết nọi dung*/
+	--growth-from:0.1;
+	--growth-to:1;
+	background-color:var(--white-color);
+	margin: auto;
+	border-radius: 10px;
+	z-index: 2;
+	animation: linear 0.1s;
+}
+/*button style*/
+.btn{
+	min-width: 120px;
+	background-color: var(--white-color);
+	height: 36px;
+	text-decoration: none;
+	border-radius: 2px;
+	font-size: 1.5rem;
+	background-clip: content-box;
+	padding: 0 12px; 
+	outline: none;
+	cursor:pointer;
+	border: none;
+	color: var(--text-color);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn:active{
+	border:none;
+}
+.btn.btn--primary{
+	color: var(--white-color);
+	background-color: var(--primary-color);
+}
+/*Selection*/
+
+.select-input{
+	min-width: 150px;
+	background-color: var(--white-color);
+	height: 36px;
+	text-decoration: none;
+	border-radius: 2px;
+	font-size: 1.5rem;
+	background-clip: content-box;
+	padding: 0 12px; 
+	outline: none;
+	cursor:pointer;
+	border: 02
+	color: var(--text-color);
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-around;
+}
+/*Pagination*/
+.pagination{
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.pagination-item{
+	margin: 48px 40px 50px 0;
+
+
+}
+.pagination-item__link{
+	--height: 30px;
+	display: block;
+	font-size: 2rem;
+	text-decoration: none;
+	min-width: 42px;
+	height: var(--height);
+	line-height: var(--height);
+	color: #939393;
+	text-align: center;
+	border-radius: 3px;
+}
+.pagination-item--active .pagination-item__link{
+	color:var(--white-color);
+	background-color: var(--primary-color);
+}
