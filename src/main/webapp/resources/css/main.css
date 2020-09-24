@@ -37,6 +37,7 @@
 	height: 20px;
 }
 .header__navbar-user-name{
+	color:white;
 
 }
 .header__navbar-user-menu{
@@ -693,7 +694,7 @@ user-select: none; /* Ko booi dden dduwoc cai text */
 	background-color:var(--white-color);
 	position: absolute;
 	z-index: 1;
-	top:110%;
+	top:104%;
 	right: 12px;
 	display: none;
 	box-shadow: 0 0 3px #666;
@@ -971,6 +972,7 @@ i.home-product-item__like-icon-fill{
 }
 .size{
 	display: flex;
+	margin-left:4px;
 }
 .quantity{
 	display: flex;
@@ -984,7 +986,11 @@ i.home-product-item__like-icon-fill{
 	max-height: 4rem;
 }
 .lable__size{
-	margin-right: 2rem;
+	margin-right: 2.5rem;
+}
+.quantity input{
+	max-width: 4rem;
+	
 }
 .lable__quantity{
 	margin-right: 2rem;
@@ -1058,4 +1064,59 @@ i.home-product-item__like-icon-fill{
 .btn__change--update{
 	background-color: var(--primary-color);
 	color: white;
+}
+/*Payment*/
+.method__shipping{
+	margin-top: 20px;
+	border-radius: 2px;
+
+	background-color: rgb(255, 255, 255);
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px;
+	margin-top: 5rem;
+	border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    padding: 10px;
+    min-height: 130px;
+
+}
+.method__payment{
+	border-radius: 2px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px;
+	background-color: rgb(255, 255, 255);
+	display: grid;
+	margin-top: 52px;
+	border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    padding: 10px;
+    min-height: 112px
+}
+.shipping__address{
+	margin-left: 10px;
+	margin-top: 50px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px;
+	background-color: rgb(255, 255, 255);
+	margin-bottom: 10px;
+	border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+     padding: 10px;
+}
+.total__price{
+	margin-left: 10px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px;
+	background-color: rgb(255, 255, 255);
+	margin-bottom: 10px;
+	border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+     padding: 10px;
+}
+.btn__order{
+	padding: 0;
+	min-width: 400px;
+	margin:50px 0px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px;
+
 }

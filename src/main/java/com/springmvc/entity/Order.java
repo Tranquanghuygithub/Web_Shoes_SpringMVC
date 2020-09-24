@@ -2,12 +2,16 @@ package com.springmvc.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -16,7 +20,7 @@ import javax.persistence.TemporalType;
  * The persistent class for the order database table.
  * 
  */
-@Entity(name="order")
+@Entity(name="orders")
 
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -27,15 +31,9 @@ public class Order implements Serializable {
 	private long id;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="date")
-	private Date date;
+	@Column(name="tradetime")
+	private Date tradeTime;
 
-
-	@Column(name="customerid")
-	private int customerId;
-
-	@Column(name="quantity")
-	private int quantity;
 
 	@Column(name="status")
 	private String status;
@@ -43,21 +41,25 @@ public class Order implements Serializable {
 	@Column(name="totalprice")
 	private double totalPrice;
 
-//	@JoinColumn(name="addresscheckoutid", nullable=false)
-//	private Addresscheckout addresscheckout;
-	
-	@Column(name="addresscheckoutid")
-	private long addressCheckoutId;
+
+	@ManyToOne
+	@JoinColumn(name = "addressid", referencedColumnName = "id",nullable = false)
+	private AddressCheckout addressCheckout;
 
 //	
-//	@JoinColumn(name="customerid")
-//	private Customer customer;
-	
+	@ManyToOne
+	@JoinColumn(name="customer_username", referencedColumnName = "username", nullable = false)
+	private Customer customer;
 
-//	@JoinColumn(name="shippingid", nullable=false)
-//	private Shipping shipping;
+//	
 	@Column(name="shippingid")
 	private long shippingId;
+	@ManyToOne
+	@JoinColumn(name="manager_username", referencedColumnName = "username", nullable = true)
+	private Manager manager;
+	
+//	@OneToMany(mappedBy = "order")
+//	private List<OrderDetail> orderDetails;
 
 	public Order() {
 	}
@@ -70,29 +72,22 @@ public class Order implements Serializable {
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getTradeTime() {
+		return tradeTime;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setTradeTime(Date tradeTime) {
+		this.tradeTime = tradeTime;
 	}
 
-	public int getCustomerId() {
-		return customerId;
+	public Manager getManager() {
+		return manager;
 	}
 
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	public void setManager(Manager manager) {
+		this.manager = manager;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
 
 	public String getStatus() {
 		return status;
@@ -110,12 +105,20 @@ public class Order implements Serializable {
 		this.totalPrice = totalPrice;
 	}
 
-	public long getAddressCheckoutId() {
-		return addressCheckoutId;
+	public AddressCheckout getAddressCheckout() {
+		return addressCheckout;
 	}
 
-	public void setAddressCheckoutId(long addressCheckoutId) {
-		this.addressCheckoutId = addressCheckoutId;
+	public void setAddressCheckout(AddressCheckout addressCheckout) {
+		this.addressCheckout = addressCheckout;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public long getShippingId() {
@@ -125,4 +128,31 @@ public class Order implements Serializable {
 	public void setShippingId(long shippingId) {
 		this.shippingId = shippingId;
 	}
+
+//	@Override
+//	public String toString() {
+//		return "Order [id=" + id + ", tradeTime=" + tradeTime + ", status=" + status + ", totalPrice=" + totalPrice
+//				+ ", addressCheckout=" + addressCheckout + ", customer=" + customer + ", shippingId=" + shippingId
+//				+ ", manager=" + manager + ", orderDetails=" + orderDetails + "]";
+//	}
+//
+//	public List<OrderDetail> getOrderDetails() {
+//		return orderDetails;
+//	}
+//
+//	public void setOrderDetails(List<OrderDetail> orderDetails) {
+//		this.orderDetails = orderDetails;
+//	}
+
+
+	
+
+//	public Shipping getShipping() {
+//		return shipping;
+//	}
+//
+//	public void setShipping(Shipping shipping) {
+//		this.shipping = shipping;
+//	}
+	
 }

@@ -61,6 +61,27 @@ public class ProductDAOImpl implements ProductDAO{
 		return cr.list();
 	}
 
+	@Override
+	public List<Product> getProductByObject(String object) {
+		Criteria cr= sessionFactory.getCurrentSession().createCriteria(Product.class);
+		cr.add(Restrictions.eq("object", object));
+		return cr.list();
+	}
+
+	@Override
+	public List<Product> getProductByCategory(String category) {
+		Criteria cr= sessionFactory.getCurrentSession().createCriteria(Product.class);
+		cr.add(Restrictions.eq("category", category));
+		return cr.list();
+	}
+
+	@Override
+	public List<Product> getProductByBrand(String brand) {
+		Criteria cr= sessionFactory.getCurrentSession().createCriteria(Product.class);
+		cr.add(Restrictions.eq("brand", brand));
+		return cr.list();
+	}
+
 
 
 

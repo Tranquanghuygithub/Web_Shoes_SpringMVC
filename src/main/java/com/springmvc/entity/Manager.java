@@ -14,9 +14,8 @@ public class Manager implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private long id;
+	@Column(name="username")
+	private String username;
 
 	@Column(name="email")
 	private String email;
@@ -29,23 +28,28 @@ public class Manager implements Serializable {
 	
 	@Column(name="salary")
 	private double salary;
-
-//	@JoinColumn(name="accountid")
-//	private Account account;
-	@Column(name="username")
-	private long username;
-
+    
+	@OneToOne
+	@JoinColumn(name="username")
+	private Account account;
 	public Manager() {
 		
 	}
 
-	public long getId() {
-		return this.id;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 
 	public String getEmail() {
 		return this.email;
@@ -79,13 +83,10 @@ public class Manager implements Serializable {
 		this.salary = salary;
 	}
 
-	public long getUsername() {
+	public String getUsername() {
 		return username;
 	}
 
-	public void setUsername(long username) {
-		this.username = username;
-	}
 
 
 

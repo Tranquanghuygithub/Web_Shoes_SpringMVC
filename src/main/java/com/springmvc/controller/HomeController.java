@@ -19,7 +19,7 @@ import com.springmvc.service.ProductService;
 public class HomeController {
 	@Autowired ProductService productService;
 	
-	@RequestMapping(value = "/home", method =RequestMethod.GET)
+	@RequestMapping(value = {"/","/home"}, method =RequestMethod.GET)
 		public String home(HttpServletRequest request, Model model) {
 			List<ProductDTO> listProduct= productService.getAllProduct();
 			

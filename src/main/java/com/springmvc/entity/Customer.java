@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 
 
 /**
@@ -20,8 +22,8 @@ public class Customer implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private long id;
+	@Column(name="username")
+	private String username;
 
 	@Column(name="email")
 	private String email;
@@ -32,22 +34,33 @@ public class Customer implements Serializable {
 	@Column(name="phone")
 	private String phone;
     
-	@Column(name="username")
-	private String username;
-	//@JoinColumn(name="accountid")
-	//private Account account;
+	
+	@OneToOne
+	@JoinColumn(name="username",referencedColumnName ="username", nullable = false)
+	private Account account;
+
+	// chú ý cái đia chi này: VÌ trong CSDL để addressid là unique: cơ mà quan hệ thấy vẫn ghi là 1-n
+	@OneToOne
+	@JoinColumn(name="addressid",unique = true, referencedColumnName = "id", nullable = false)
+	private Address address;
 
 
 	public Customer() {
 	}
 
-	public long getId() {
-		return this.id;
+
+
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
+
+
 
 	public String getEmail() {
 		return this.email;
@@ -80,6 +93,18 @@ public class Customer implements Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+
+
+	public Address getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 

@@ -59,8 +59,8 @@
                      <form:select path="object" class="form-control" >
                      	<form:option value="Nam">Nam</form:option>
                      	<form:option value="Nữ">Nữ</form:option>
-                     	<form:option value="Nữ">Bé trai</form:option>
-                     	<form:option value="Nữ">Bé gái</form:option>
+                     	<form:option value="Bé trai">Bé trai</form:option>
+                     	<form:option value="Bé gái">Bé gái</form:option>
                      </form:select><br>
                      <p style="color:red" ><form:errors path="object"/></p>
                     </div>

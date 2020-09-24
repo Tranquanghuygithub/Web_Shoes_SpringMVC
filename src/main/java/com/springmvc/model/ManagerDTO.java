@@ -1,36 +1,50 @@
 package com.springmvc.model;
 
 public class ManagerDTO {
-	private long id;
-	private long accountId;
+	private String username;
 	private String fullName;
 	private String phone;
 	private String email;
 	private double salary;
 	
+	private AccountDTO account;
 	
-	public ManagerDTO(long id, long accountId, String fullName, String phone, String email, double salary) {
+	
+	public ManagerDTO(String username,String fullName, String phone, String email, double salary) {
 		super();
-		this.id = id;
-		this.accountId = accountId;
+		this.username = username;
 		this.fullName = fullName;
 		this.phone = phone;
 		this.email = email;
 		this.salary = salary;
 	}
 	
-	public long getId() {
-		return id;
+
+
+	public AccountDTO getAccount() {
+		return account;
 	}
-	public void setId(long id) {
-		this.id = id;
+
+
+
+	public void setAccount(AccountDTO account) {
+		this.account = account;
 	}
-	public long getAccountId() {
-		return accountId;
+
+
+
+	public String getUsername() {
+		return username;
 	}
-	public void setAccountId(long accountId) {
-		this.accountId = accountId;
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
+
+
+
 	public String getFullName() {
 		return fullName;
 	}

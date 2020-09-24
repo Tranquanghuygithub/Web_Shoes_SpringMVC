@@ -78,7 +78,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<ProductDTO> getProductByName(String name) {
 		List<Product> list=productDAO.getProductByName(name);
-		List<ProductDTO> result = null;
+		List<ProductDTO> result = new ArrayList<ProductDTO>();
 		for(Product p:list) {
 			result.add(covertToDTO(p));
 			
@@ -94,6 +94,39 @@ public class ProductServiceImpl implements ProductService{
 		List<ProductDTO> result= new ArrayList<ProductDTO>();
 		for(Product p:list) {
 			result.add(covertToDTO(p));
+		}
+		return result;
+	}
+
+	@Override
+	public List<ProductDTO> getProductByObject(String object) {
+		List<Product> list=productDAO.getProductByObject(object);
+		List<ProductDTO> result = new ArrayList<ProductDTO>();
+		for(Product p:list) {
+			result.add(covertToDTO(p));
+			
+		}
+		return result;
+	}
+
+	@Override
+	public List<ProductDTO> getProductByCategory(String category) {
+		List<Product> list=productDAO.getProductByName(category);
+		List<ProductDTO> result = new ArrayList<ProductDTO>();
+		for(Product p:list) {
+			result.add(covertToDTO(p));
+			
+		}
+		return result;
+	}
+
+	@Override
+	public List<ProductDTO> getProductByBrand(String brand) {
+		List<Product> list=productDAO.getProductByBrand(brand);
+		List<ProductDTO> result = new ArrayList<ProductDTO>();
+		for(Product p:list) {
+			result.add(covertToDTO(p));
+			
 		}
 		return result;
 	}

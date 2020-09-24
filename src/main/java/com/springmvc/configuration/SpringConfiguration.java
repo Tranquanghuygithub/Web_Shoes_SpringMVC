@@ -29,7 +29,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.springmvc")
-@PropertySource(value = {"classpath:db.properties"})
+@PropertySource(value = {"classpath:db.properties"})  
 @EnableTransactionManagement
 //coponentScan quet cac class co annotation tao bean
 
@@ -44,28 +44,29 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
 	//
-	@Bean
-	public ViewResolver viewResolver() {
-		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-		viewResolver.setViewClass(JstlView.class);
-		viewResolver.setPrefix("/WEB-INF/views/");
-		viewResolver.setSuffix(".jsp");
-		return viewResolver;
-		
-	}
+//	@Bean
+//	public ViewResolver viewResolver() {
+//		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+//		viewResolver.setViewClass(JstlView.class);
+//		viewResolver.setPrefix("/WEB-INF/views/");
+//		viewResolver.setSuffix(".jsp");
+//		return viewResolver;
+//		
+//	}
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/upload/**")
 	     .addResourceLocations("file:/F://upload/");
 		 //resouce/** dduwongf dan tren trinh duyet: ten co the bat ki
-		//resouces duong dan tren server
+		//resouces duong dan tren servera                            	 	
 	}
 	//tao bean
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource bundleMessageSource= new ReloadableResourceBundleMessageSource();
 		bundleMessageSource.setBasename("classpath:messages");// classpath tror dden cai src/main/resource
+		
 		bundleMessageSource.setDefaultEncoding("utf-8");// ho tro tieng viwr
 		return bundleMessageSource;
 	}

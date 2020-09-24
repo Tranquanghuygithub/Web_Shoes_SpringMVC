@@ -6,22 +6,38 @@ import java.util.List;
 public class OrderDTO {
 	private long id;
 	
-	private String totalPrice;
-	private Date tradeTime;
-	private String status;
-	private AddressCheckOutDTO address;
-	private ShippingDTO shippingDTO;
-	private  List<OrderDetailDTO> listDetail;
+	private double totalPrice;//
+	private double usd;
+	private Date tradeTime;//
+	private String status;//
+	private String paymentType;//
+	private long shippingId;//
 	
-	public OrderDTO(long id, String totalPrice, Date tradeTime, String status, AddressCheckOutDTO address,
-			ShippingDTO shippingDTO) {
+	private double shippingPrice;//
+	
+	//private ShippingDTO shipping;//
+	
+	private CustomerDTO customer;
+	private AddressCheckoutDTO addressCheckout;
+	private ManagerDTO manager;
+
+	
+	
+	private  List<OrderDetailDTO> orderDetails;
+	
+	public OrderDTO() {
+		super();
+	}
+	public OrderDTO(long id, double totalPrice, Date tradeTime, String status, AddressDTO address,
+			ShippingDTO shipping, double shippingPrice) {
 		super();
 		this.id = id;
 		this.totalPrice = totalPrice;
 		this.tradeTime = tradeTime;
 		this.status = status;
-		this.address = address;
-		this.shippingDTO = shippingDTO;
+		//this.shipping = shipping;
+		
+		this.shippingPrice=shippingPrice;
 	}
 	public long getId() {
 		return id;
@@ -29,10 +45,10 @@ public class OrderDTO {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getTotalPrice() {
+	public double getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(String totalPrice) {
+	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	public Date getTradeTime() {
@@ -47,23 +63,62 @@ public class OrderDTO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public AddressCheckOutDTO getAddress() {
-		return address;
+	public String getPaymentType() {
+		return paymentType;
 	}
-	public void setAddress(AddressCheckOutDTO address) {
-		this.address = address;
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
 	}
-	public ShippingDTO getShippingDTO() {
-		return shippingDTO;
+	public long getShippingId() {
+		return shippingId;
 	}
-	public void setShippingDTO(ShippingDTO shippingDTO) {
-		this.shippingDTO = shippingDTO;
+	public void setShippingId(long shippingId) {
+		this.shippingId = shippingId;
 	}
-	public List<OrderDetailDTO> getListDetail() {
-		return listDetail;
+	public double getShippingPrice() {
+		return shippingPrice;
 	}
-	public void setListDetail(List<OrderDetailDTO> listDetail) {
-		this.listDetail = listDetail;
+	public void setShippingPrice(double shippingPrice) {
+		this.shippingPrice = shippingPrice;
 	}
+//	public ShippingDTO getShipping() {
+//		return shipping;
+//	}
+//	public void setShipping(ShippingDTO shipping) {
+//		this.shipping = shipping;
+//	}
+	public CustomerDTO getCustomer() {
+		return customer;
+	}
+	public void setCustomer(CustomerDTO customer) {
+		this.customer = customer;
+	}
+	public AddressCheckoutDTO getAddressCheckout() {
+		return addressCheckout;
+	}
+	public void setAddressCheckout(AddressCheckoutDTO addressCheckout) {
+		this.addressCheckout = addressCheckout;
+	}
+	public ManagerDTO getManager() {
+		return manager;
+	}
+	public void setManager(ManagerDTO manager) {
+		this.manager = manager;
+	}
+	public List<OrderDetailDTO> getOrderDetails() {
+		return orderDetails;
+	}
+	public void setOrderDetails(List<OrderDetailDTO> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
+	public double getUsd() {
+		return usd;
+	}
+	public void setUsd(double usd) {
+		this.usd = usd;
+	}
+
+
+	
 	
 }

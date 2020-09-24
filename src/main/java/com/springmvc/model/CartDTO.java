@@ -37,6 +37,13 @@ public class CartDTO {
 			
 		}
 	}
+	public int  getQuantity() {
+		int total=0;
+		for(ItemDTO item:itemList) {
+			total+=item.getQuantity();
+		}
+		return total;
+	}
 
 	public void setItemList(List<ItemDTO> itemList) {
 		this.itemList = itemList;

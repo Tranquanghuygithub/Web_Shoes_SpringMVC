@@ -39,6 +39,13 @@ public class ShippingDTO {
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
+
+	@Override
+	public String toString() {
+		String s=" "+shippingType+"( "+"Chi phí : "+cost+" đ  )";
+		return s;
+	}
+	
 	
 	
 }

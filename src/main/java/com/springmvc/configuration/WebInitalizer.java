@@ -29,5 +29,4 @@ public class WebInitalizer implements WebApplicationInitializer {
 		servletContext.addFilter("encodingFilter", characterEncodingFilter)
 		.addMappingForUrlPatterns(null, false, "/*");
 	}
-
 }

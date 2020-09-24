@@ -1,31 +1,29 @@
 package com.springmvc.model;
 
 public class CustomerDTO {
-	private long id;
-	private String fullName;
+	private String username;
+	private String name;
 	private String phone;
 	private String email;
+	
+	private AddressDTO  address;
+	private AccountDTO  account;
 	public CustomerDTO() {
 		super();
 	}
-	public CustomerDTO(long id, String fullName, String phone, String email) {
+	public CustomerDTO(String username, String name, String phone, String email) {
 		super();
-		this.id = id;
-		this.fullName = fullName;
+		this.username = username;
+		this.name = name;
 		this.phone = phone;
 		this.email = email;
 	}
-	public long getId() {
-		return id;
+	
+	public String getUsername() {
+		return username;
 	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getFullName() {
-		return fullName;
-	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPhone() {
 		return phone;
@@ -38,6 +36,24 @@ public class CustomerDTO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public AddressDTO getAddress() {
+		return address;
+	}
+	public void setAddress(AddressDTO address) {
+		this.address = address;
+	}
+	public AccountDTO getAccount() {
+		return account;
+	}
+	public void setAccount(AccountDTO account) {
+		this.account = account;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

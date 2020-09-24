@@ -16,6 +16,8 @@
 			<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/bootstrap.min.css'/>"/>
 			<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/base.css'/>"/>
 			<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/main.css'/>"/>
+			<link rel="stylesheet" href="<c:url value='/resources/fonts/fontawesome-free-5.12.1-web/css/all.min.css'/>">
+			
 			
 	</head>
 <body>
@@ -27,7 +29,7 @@
 				<nav class="header__navbar">
 					<ul class="header__navbar-list">
 						<li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
-							Vào ứng dụng cửa hàng trên F8-ShOP
+							Vào ứng dụng cửa hàng trên H-ShOP
 							<!-- Header QR code -->
 							<div class="header__qr">
 							
@@ -83,7 +85,9 @@
 								 	<a href="<c:url value='/login'/>" class="header__navbar-user-name" >Đăng nhập</a>
 								</c:when>
 								<c:when test="${!empty sessionScope.account }">
-									<span class="header__navbar-user-name">Tran Huy</span>
+									<span class="header__navbar-user-name">
+									    <c:out value = "${sessionScope.account.username}"/>
+									</span>
 									<div class="header__navbar-user-menu">
 										<a href="#">
 											<p class="header__navbar-user-menu-item">Don hang cua toi</p>
@@ -106,46 +110,52 @@
 				<!-- Header with search -->
 				<div class="header-with-search">
 					<div class="header__logo">
-						<span> <img src="<c:url value='/resources/images/brand.png'/>" alt="brand.png" class="header__logo-img"></span>
+						<a href="<c:url value='/home' />" >
+							<span> <img src="<c:url value='/resources/images/brand.png'/>" alt="brand.png" class="header__logo-img"></span>
+						</a>
+						
 					</div>
 					<div class="header__search">
 						<!-- Search History -->
-						<div class="header__search-input-wrap">
-							<input class="header__search-input" placeholder ="Nhập để tìm kiếm sản phẩm">
-							<div class="header__search-history">
-								<h3 class="header__search-history-heading">Lich su tim kiem</h3>
-								<ul class="header__search-history-list">
-									<!-- <li class="header__search-history-item">
-										<a href=""> kem duong da</a>
-									</li>
-									<li class="header__search-history-item">
-										<a href=""> kem tri mun</a>
-									</li> -->
-								</ul>
-							</div>
-							<div class="header__search-select">
-								<span class="header__search-select-lable">
-									Trong Shop
-									<!-- deo eo lam nuwa -->
-								</span>
-								<i class=" header__search-select-icon fas fa-angle-down"></i>
-							</div>
-							<button class="header__search-btn">
-							<i class="header__search-btn-icon fas fa-search"></i>
-							</button>
-						</div>
+						
+						<form action="<c:url value='/search'/>" method="GET" style="flex:1;">
+							<div class="header__search-input-wrap">
+							 
+							 	<input class="header__search-input" style="margin-top:1rem;" name="keyword" placeholder ="Nhập để tìm kiếm sản phẩm">					
+								<button  type="submit" class="header__search-btn">
+									<i class="header__search-btn-icon fas fa-search"></i>
+								</button>
+							 
+								
+							  </div>
+						</form>
 					</div>
 					<!-- Layout Cart -->
 					<div class="header__cart">
-						<a href="<c:url value='/view' />">
-							<span style="color: white;font-size: 1.4rem;">Giỏ hàng</span>
-							<div class="header__cart-wrap">
-								<i class=" header__cart-icon fas fa-shopping-cart"></i>
-								<span class="header__cart-notice">
-									3
-								</span>
-							</div>
-						</a>
+						<c:choose>
+							<c:when test="${!empty sessionScope.cartDTO}">
+								 <a href="<c:url value='/view' />">
+									<span style="color: white;font-size: 1.4rem;">Giỏ hàng</span>
+									
+									<div class="header__cart-wrap">
+										<i class=" header__cart-icon fas fa-shopping-cart"></i>
+										<span class="header__cart-notice">
+											<c:out value = "${sessionScope.quantity}"/>
+										</span>
+									</div>
+							     </a>
+							</c:when>
+							<c:when test="${empty sessionScope.cartDTO}">
+									<span style="color: white;font-size: 1.4rem;">Giỏ hàng</span>
+									
+									<div class="header__cart-wrap">
+										<i class=" header__cart-icon fas fa-shopping-cart"></i>
+										<span class="header__cart-notice">									
+										</span>
+									</div>
+							</c:when>
+						</c:choose>
+						
 						
 					</div>
 				</div>
@@ -159,16 +169,17 @@
 							<h3 class="category__heading">Danh Muc</h3>
 							<ul class="category-list">
 								<li class="category-item">
-									<a href="#" class="category-item__link">Giay The Thao Nam</a>
+									
+									<a href="<c:url value='/filter?object=Nam'/>" class="category-item__link">Giaỳ Nam</a>
 								</li>
 								<li class="category-item">
-									<a href="#" class="category-item__link">Giay The Thao Nu</a>
+									<a href="<c:url value='/filter?object=Nữ'/>" class="category-item__link">Giaỳ Nữ</a>
 								</li>
 								<li class="category-item">
-									<a href="#" class="category-item__link">Giay The Thao Cho Be Trai</a>
+									<a href="<c:url value='/filter?object=Bé trai'/>" class="category-item__link">Giaỳ  Bé Trai</a>
 								</li>
 								<li class="category-item">
-									<a href="#" class="category-item__link">The Thao Cho Be Gai</a>
+									<a href="<c:url value='/filter?object=Bé gái'/>" class="category-item__link">Giày Bé Gái</a>
 								</li>
 							</ul>
 						</nav>
@@ -247,14 +258,14 @@
 											
 										</div>
 										<h4 class="home-product-item__name">
-									       ${shoes.name}
+									        ${shoes.name}
 										</h4>
 										<div class="home-product-item__price">
 											<span class="home-product-item__price-old">
 												1.200.000d
 											</span>
 											<span class="home-product-item__price-new">
-												${shoes.price}
+												${shoes.price}								
 											</span>
 										</div>
 										<div class="home-product-item__action">

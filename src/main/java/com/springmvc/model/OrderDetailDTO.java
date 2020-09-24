@@ -2,21 +2,31 @@ package com.springmvc.model;
 
 public class OrderDetailDTO {
 	private long id;
-	private long productId;
-	private long orderId;
 	private int quantity;
 	private int size;
 	private double unitPrice;
 	
-	private ProductDTO productDTO;
-	public OrderDetailDTO(long id, ProductDTO productDTO, int quantity, double unitPrice, int size) {
+	private long productId;
+	private long orderId;
+	
+	
+//	private OrderDTO orderDTO;
+	//private ProductDTO product;
+	
+	public OrderDetailDTO() {
 		super();
-		this.id = id;
-		this.productDTO = productDTO;
-		this.quantity = quantity;
-		this.unitPrice = unitPrice;
-		this.setSize(size);
 	}
+
+	public OrderDetailDTO(long id, int quantity, int size, double unitPrice, long productId, long orderId) {
+	super();
+	this.id = id;
+	this.quantity = quantity;
+	this.size = size;
+	this.unitPrice = unitPrice;
+	this.productId = productId;
+	this.orderId = orderId;
+}
+
 	// ham nay để chuyên từ DTO->Entity
 	public OrderDetailDTO(long id, long productId, long orderId, int quantity, int size, double unitPrice) {
 		super();
@@ -33,12 +43,6 @@ public class OrderDetailDTO {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public ProductDTO getProductDTO() {
-		return productDTO;
-	}
-	public void setProductDTO(ProductDTO productDTO) {
-		this.productDTO = productDTO;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -71,6 +75,7 @@ public class OrderDetailDTO {
 	public void setOrderId(long orderId) {
 		this.orderId = orderId;
 	}
+
 	
 	
 }

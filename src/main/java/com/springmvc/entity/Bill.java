@@ -1,7 +1,15 @@
 package com.springmvc.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -24,8 +32,10 @@ public class Bill implements Serializable {
 	@Column(name="paymenttype")
 	private String paymenttype;
 
-	@Column(name="orderid")
-	private long orderId;
+	
+	@OneToOne
+	@JoinColumn(name = "orderid",unique=true)
+	private Order order;
 
 	public Bill() {
 	}
@@ -50,12 +60,12 @@ public class Bill implements Serializable {
 		return this.paymenttype;
 	}
 
-	public long getOrderId() {
-		return orderId;
+	public Order getOrder() {
+		return this.order;
 	}
 
-	public void setOrderId(long orderId) {
-		this.orderId = orderId;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	public void setPaymenttype(String paymenttype) {

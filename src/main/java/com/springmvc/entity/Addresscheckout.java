@@ -14,7 +14,7 @@ import javax.persistence.Id;
  * 
  */
 @Entity(name="addresscheckout")
-public class Addresscheckout implements Serializable {
+public class AddressCheckout implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -25,17 +25,25 @@ public class Addresscheckout implements Serializable {
 	@Column(name="city")
 	private String city;
 
-	@Column(name="description")
-	private String description;
+	
 
 	@Column(name="district")
 	private String district;
 
 	@Column(name="ward")
 	private String ward;
+ 
+	@Column(name="description")
+	private String description;
+	
+	@Column(name="name")
+	private String name;
+	
+	@Column(name="phone")
+	private String phone;
+	
 
-
-	public Addresscheckout() {
+	public AddressCheckout() {
 	}
 
 	public long getId() {
@@ -72,6 +80,22 @@ public class Addresscheckout implements Serializable {
 
 	public String getWard() {
 		return this.ward;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public void setWard(String ward) {

@@ -1,22 +1,32 @@
 package com.springmvc.model;
 
-public class AddressCheckOutDTO {
+public class AddressCheckoutDTO {
 	private long id;
 	private String city;
 	private String district;
 	private String ward;
-	private String desciption;
-	public AddressCheckOutDTO() {
+	private String description;
+	private String name;
+	private String phone;
+	
+	public AddressCheckoutDTO() {
 		super();
 	}
-	public AddressCheckOutDTO(long id, String city, String district, String ward, String desciption) {
+	
+
+	public AddressCheckoutDTO(long id, String city, String district, String ward, String description, String name,
+			String phone) {
 		super();
 		this.id = id;
 		this.city = city;
 		this.district = district;
 		this.ward = ward;
-		this.desciption = desciption;
+		this.description = description;
+		this.name = name;
+		this.phone = phone;
 	}
+
+
 	public long getId() {
 		return id;
 	}
@@ -41,11 +51,27 @@ public class AddressCheckOutDTO {
 	public void setWard(String ward) {
 		this.ward = ward;
 	}
-	public String getDesciption() {
-		return desciption;
+	public String getDescription() {
+		return description;
 	}
-	public void setDesciption(String desciption) {
-		this.desciption = desciption;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	
